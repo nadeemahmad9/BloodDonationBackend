@@ -180,7 +180,7 @@ app.use(express.json());
 
 app.use(
     cors({
-        origin: 'https://blooddonationn.netlify.app', // Your frontend URL
+        origin: 'https://blooddonationnapp.netlify.app', // Your frontend URL
         methods: 'GET,POST,PUT,DELETE,OPTIONS',
         allowedHeaders: 'Content-Type,Authorization',
         credentials: false,
