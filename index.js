@@ -215,7 +215,7 @@
 
 const express = require('express');
 const cors = require('cors');
-const authRoutes = require('./routes/auth'); // Example route file
+const authRoutes = require('./routers/authRouter'); // Example route file
 const app = express();
 
 // Allow all origins (for development only)
@@ -233,7 +233,7 @@ app.options('*', cors());
 
 app.use(express.json());
 
-app.use('/auth', authRoutes); // Your route setup
+app.use('/authRouter', authRoutes); // Your route setup
 
 const PORT = process.env.PORT || 3177;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
