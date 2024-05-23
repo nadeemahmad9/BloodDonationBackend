@@ -169,6 +169,7 @@ const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser");
 
+
 const app = express();
 const PORT = process.env.PORT || 3177;
 
@@ -196,6 +197,12 @@ async function connectToDatabase() {
         });
         console.log("Connected successfully to database");
 
+
+        app.use("/auth", require("./routers/authRouter"));
+        app.use("/user", require("./routers/userRouter"));
+        app.use("/bank", require("./routers/bankRouter"));
+        app.use("/camps", require("./routers/campRouter"));
+
         // Start the server after successful database connection
         app.listen(PORT, () => {
             console.log(`Server running at http://localhost:${PORT}`);
@@ -207,10 +214,6 @@ async function connectToDatabase() {
 
 connectToDatabase();
 
-app.use("/auth", require("./routers/authRouter"));
-app.use("/user", require("./routers/userRouter"));
-app.use("/bank", require("./routers/bankRouter"));
-app.use("/camps", require("./routers/campRouter"));
 
 
 // const express = require('express');
